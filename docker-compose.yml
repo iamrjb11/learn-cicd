@@ -2,7 +2,7 @@ version: "3.7"
 services:  # i have 2 services
   springboot:
     build: .
-    image: rajib11/learn-docker:v1
+    image: rajib11/learn-docker:v2
     container_name: 'SpringBootContainer'   #Custom ContainerName
     ports:
       - "8080:8080"  #docker:machine
@@ -14,7 +14,7 @@ services:  # i have 2 services
     container_name: 'mysqlContainer'      #Custom ContainerName
     environment:
         MYSQL_ROOT_PASSWORD: root234       # root password (required)
-        MYSQL_DATABASE: schooldb123           # database created at startup
+        MYSQL_DATABASE: schooldb          # database created at startup
         #MYSQL_USER: asterisk               # your custom user
         #MYSQL_PASSWORD: asterisk123
     ports:
@@ -29,5 +29,4 @@ networks:
     driver: bridge
 volumes:
   mysql-r-date:  #docker volume
-
 
