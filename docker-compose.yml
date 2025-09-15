@@ -2,7 +2,7 @@ version: "3.7"
 services:  # i have 2 services
   springboot:
     build: .
-    image: rajib11/learn-docker:v2
+    image: rajib11/learn-docker:v3
     container_name: 'SpringBootContainer'   #Custom ContainerName
     ports:
       - "8080:8080"  #docker:machine
