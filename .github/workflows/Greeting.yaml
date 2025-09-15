@@ -28,8 +28,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.rajib11 }}
-          password: ${{ secrets.iamdocker1511 }}
+          username: rajib11
+          password: iamdocker1511
 
       - name: Build and push springboot image with docker-compose
         run: |
