@@ -1,0 +1,8 @@
+name: Greeting From Rajib
+on: push
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display a Message
+        run: echo "Hello and Welcome"
