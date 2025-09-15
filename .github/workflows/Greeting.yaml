@@ -39,8 +39,8 @@ jobs:
           password: iamdocker1511
       - name: Build and push springboot image from Dockerfile
         run: |
-          docker build -t rajib11/learn-docker:v4 .
-          docker push rajib11/learn-docker:v4
+          docker build -t rajib11/learn-docker:v5 .
+          docker push rajib11/learn-docker:v5
 #      - name: Build and push springboot [service name] image from docker-compose
 #        run: |
 #          docker compose build springboot
