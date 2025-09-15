@@ -37,8 +37,11 @@ jobs:
         with:
           username: rajib11
           password: iamdocker1511
-
-      - name: Build and push springboot image with docker-compose
+      - name: Build and push springboot image from Dockerfile
         run: |
-          docker compose build springboot
-          docker compose push springboot
+          docker build -t rajib11/learn-docker:v4 .
+          docker push rajib11/learn-docker:v4
+#      - name: Build and push springboot [service name] image from docker-compose
+#        run: |
+#          docker compose build springboot
+#          docker compose push springboot
