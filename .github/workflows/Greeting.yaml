@@ -1,8 +1,14 @@
-name: Greeting From Rajib
+name: Java Project CI/CD
 on: push
 jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
-      - name: Display a Message
-        run: echo "Hello and Welcome"
+      - name: Get Code First
+        uses: actions/checkout@v5
+      - name: Setup SDK 17
+        uses: actions/setup-java@v5
+        with:
+            - java-version: '17'
+      - name: Run Test Case
+        run: mvn clean test
