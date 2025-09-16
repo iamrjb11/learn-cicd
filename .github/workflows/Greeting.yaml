@@ -13,6 +13,11 @@ jobs:
             java-version: '17'
       - name: Build and run tests with Maven
         run: mvn clean verify   # runs tests
+      - name: Upload Dist Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: learn-docker
+          path: target/*.jar
 
   cd: # -------------------- Continuous Delivery -----------------------
     runs-on: ubuntu-latest
@@ -21,14 +26,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
-      - name: Setup SDK 17
-        uses: actions/setup-java@v5
+      # - name: Setup SDK 17
+      #   uses: actions/setup-java@v5
+      #   with:
+      #     distribution: 'temurin'
+      #     java-version: '17'
+      # - name: Build project with Maven
+      #   run: mvn clean package
+      - name: Download Dist Artifact
+        uses: actions/download-artifact@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
-      - name: Build project with Maven
-        run: mvn clean package
-
+          name: learn-docker
+          path: target
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -39,8 +48,8 @@ jobs:
           password: iamdocker1511
       - name: Build and push springboot image from Dockerfile
         run: |
-          docker build -t rajib11/learn-docker:v5 .
-          docker push rajib11/learn-docker:v5
+          docker build -t rajib11/learn-docker:v6 .
+          docker push rajib11/learn-docker:v6
 #      - name: Build and push springboot [service name] image from docker-compose
 #        run: |
 #          docker compose build springboot
